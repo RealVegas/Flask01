@@ -1,19 +1,132 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакты</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .header{
+            background-color: #3278EB;
+            margin-left: 100px;
+            margin-right: 100px;
+            height: 850px;
+            margin-top: 100px;
+
+        }
+        .decor{
+            position: fixed;
+            right: 100px;
+            width: 600px;
+            height: auto;
+        }
+        .splitter{
+            background-color: #5FA5FA;
+            margin-left: 0;
+            margin-right: 0;
+            height: 12px;
+            margin-top: 20px;
+            z-index: 1200;
+        }
+        h1{
+            text-align: center;
+            padding-top: 300px;
+            font-size: 60px;
+            color: #FFFFFF;
+        }
+        h2{
+            text-align: left;
+            padding-left: 263px;
+            padding-top: 50px;
+            font-size: 40px;
+            color: #FFFFFF;
+        }
+        h3{
+            text-align: left;
+            padding-left: 263px;
+            padding-top: 100px;
+            font-size: 30px;
+            color: #FFFFFF;
+        }
+    </style>
+
+    <script>
+        /*1480*/
+        /*1455 | 30,5*/
+
+        function rubber_page()
+        {
+            let win_width = window.innerWidth || document.body.clientWidth;
+
+            let decor_img = document.getElementsByClassName('decor')[0];
+
+            let advert_text = document.getElementsByTagName('h1')[0];
+            let telegram_text = document.getElementsByTagName('h2')[0];
+            let contacts_text = document.getElementsByTagName('h3')[0];
+
+            let h1_initsize = 60;
+            let h2_initsize = 40;
+            let h3_initsize = 30;
+            let left_pad = win_width/2 - 697;
+
+            let h1_size;
+            let h2_size;
+            let h3_size;
+            //alert(win_width + " | " + left_pad)
+
+            if (left_pad > 10) {
+                telegram_text.style.paddingLeft = left_pad + 'px';
+                contacts_text.style.paddingLeft = left_pad + 'px';
+            }
+
+            if (win_width < 1455){
+                h1_size = Math.round(h1_initsize - (1455 - win_width)/20.8);
+                advert_text.style.fontSize = h1_size + 'px';
+               }
+
+            if (win_width < 660) {
+                h2_size = Math.round(h2_initsize - (660 - win_width)/10.6);
+                telegram_text.style.fontSize = h2_size + 'px';
+            }
+
+            if (win_width < 770) {
+                h3_size = Math.round(h3_initsize - (770 - win_width)/18);
+                contacts_text.style.fontSize = h3_size + 'px';
+            }
+
+            if (win_width < 1360){
+                decor_img.style.width = '500px';
+            }
+
+            if (win_width >= 1360){
+                decor_img.style.width = '600px';
+            }
+
+            if (win_width < 730){
+                decor_img.style.width = '400px';
+            }
+
+            if (win_width < 600){
+                decor_img.style.width = '300px';
+            }
+
+            if (win_width <= 500){
+                decor_img.style.width = '250px';
+            }
+        }
+    </script>
 </head>
-<body>
+<body onresize="rubber_page()">
 
+    <div class='header'>
+        <img class="decor"  src="../static/img/decor.png" alt="decor">
+        <h1>Я всегда открыт для новых проектов и<br>возможностей. Связаться со мной можно:</h1>
+        <div class="splitter"></div>
+        <h2>Telegram: @Vegas_Real</h2>
+        <h3>Email: grafit-design@inbox.ru<br>GitHub: https://github.com/RealVegas</h3>
+    </div>
 
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 
