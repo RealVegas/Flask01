@@ -8,6 +8,7 @@
     <style>
         .header{
             background-color: #3278EB;
+            color: #FFFFFF;
             margin-left: 100px;
             margin-right: 100px;
             height: 850px;
@@ -53,67 +54,91 @@
     <script>
         /*1480*/
         /*1455 | 30,5*/
+    function rubber_page()
+    {
+        let win_width = window.innerWidth || document.body.clientWidth;
 
-        function rubber_page()
-        {
-            let win_width = window.innerWidth || document.body.clientWidth;
+        let decor_img = document.getElementsByClassName('decor')[0];
 
-            let decor_img = document.getElementsByClassName('decor')[0];
+        let advert_text = document.getElementsByTagName('h1')[0];
+        let telegram_text = document.getElementsByTagName('h2')[0];
+        let contacts_text = document.getElementsByTagName('h3')[0];
 
-            let advert_text = document.getElementsByTagName('h1')[0];
-            let telegram_text = document.getElementsByTagName('h2')[0];
-            let contacts_text = document.getElementsByTagName('h3')[0];
+        let decor_initsize = 600;
 
-            let h1_initsize = 60;
-            let h2_initsize = 40;
-            let h3_initsize = 30;
-            let left_pad = win_width/2 - 697;
+        let h1_initsize = 60;
+        let h2_initsize = 40;
+        let h3_initsize = 30;
+        let left_pad = win_width/2 - 697;
 
-            let h1_size;
-            let h2_size;
-            let h3_size;
-            //alert(win_width + " | " + left_pad)
+        let decor_size;
 
-            if (left_pad > 10) {
-                telegram_text.style.paddingLeft = left_pad + 'px';
-                contacts_text.style.paddingLeft = left_pad + 'px';
-            }
+        let h1_size;
+        let h2_size;
+        let h3_size;
 
-            if (win_width < 1455){
-                h1_size = Math.round(h1_initsize - (1455 - win_width)/20.8);
-                advert_text.style.fontSize = h1_size + 'px';
-               }
-
-            if (win_width < 660) {
-                h2_size = Math.round(h2_initsize - (660 - win_width)/10.6);
-                telegram_text.style.fontSize = h2_size + 'px';
-            }
-
-            if (win_width < 770) {
-                h3_size = Math.round(h3_initsize - (770 - win_width)/18);
-                contacts_text.style.fontSize = h3_size + 'px';
-            }
-
-            if (win_width < 1360){
-                decor_img.style.width = '500px';
-            }
-
-            if (win_width >= 1360){
-                decor_img.style.width = '600px';
-            }
-
-            if (win_width < 730){
-                decor_img.style.width = '400px';
-            }
-
-            if (win_width < 600){
-                decor_img.style.width = '300px';
-            }
-
-            if (win_width <= 500){
-                decor_img.style.width = '250px';
-            }
+        // Изменение размера шрифта advert_text, telegram_text и contacts_text
+        if (win_width < 660) {
+            h2_size = Math.round(h2_initsize - (660 - win_width)/10.6);
+            telegram_text.style.fontSize = h2_size + 'px';
         }
+
+        if (win_width < 770) {
+            h3_size = Math.round(h3_initsize - (770 - win_width)/18);
+            contacts_text.style.fontSize = h3_size + 'px';
+        }
+
+        if (win_width < 1455){
+            h1_size = Math.round(h1_initsize - (1455 - win_width)/20.8);
+            advert_text.style.fontSize = h1_size + 'px';
+        }
+
+        // Изменение отступов telegram_text и contacts_text
+        if (left_pad > 10) {
+            telegram_text.style.paddingLeft = left_pad + 'px';
+            contacts_text.style.paddingLeft = left_pad + 'px';
+        }
+        if (h2_size >= h2_initsize && h3_size >=h3_initsize) {
+            telegram_text.style.paddingLeft = left_pad + 'px';
+            contacts_text.style.paddingLeft = left_pad + 'px';
+        }
+
+
+
+
+
+
+
+
+
+
+
+        // Изменение ширины декора
+        if (win_width <= 500){
+            decor_img.style.width = '250px';
+        }
+        if (win_width < 600){
+            decor_img.style.width = '300px';
+        }
+        if (win_width < 730){
+            decor_img.style.width = '400px';
+        }
+        if (win_width < 1360){
+            decor_img.style.width = '500px';
+        }
+        if (win_width >= 1360){
+            // decor_initsize
+            decor_size = decor_initsize - (1920 - win_width)* 5.6
+            decor_img.style.width = decor_size + 'px';
+        }
+
+
+
+
+
+
+
+    }
     </script>
 </head>
 <body onresize="rubber_page()">
