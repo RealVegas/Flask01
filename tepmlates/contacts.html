@@ -52,8 +52,6 @@
     </style>
 
     <script>
-        /*1480*/
-        /*1455 | 30,5*/
     function rubber_page()
     {
         let win_width = window.innerWidth || document.body.clientWidth;
@@ -64,18 +62,17 @@
         let telegram_text = document.getElementsByTagName('h2')[0];
         let contacts_text = document.getElementsByTagName('h3')[0];
 
-        let decor_initsize = 600;
-
         let h1_initsize = 60;
         let h2_initsize = 40;
         let h3_initsize = 30;
-        let left_pad = win_width/2 - 697;
-
-        let decor_size;
 
         let h1_size;
         let h2_size;
         let h3_size;
+
+        let left_pad = win_width/2 - 697;
+
+        let decor_size;
 
         // Изменение размера шрифта advert_text, telegram_text и contacts_text
         if (win_width < 660) {
@@ -103,43 +100,19 @@
             contacts_text.style.paddingLeft = left_pad + 'px';
         }
 
-
-
-
-
-
-
-
-
-
-
         // Изменение ширины декора
-        if (win_width <= 500){
-            decor_img.style.width = '250px';
-        }
-        if (win_width < 600){
-            decor_img.style.width = '300px';
-        }
-        if (win_width < 730){
-            decor_img.style.width = '400px';
-        }
-        if (win_width < 1360){
-            decor_img.style.width = '500px';
-        }
-        if (win_width >= 1360){
+        if (win_width >= 1360) {
             // decor_initsize
-            decor_size = decor_initsize - (1920 - win_width)* 5.6
+            decor_size = 600 - (1920 - win_width) * 0.178571429;
             decor_img.style.width = decor_size + 'px';
         }
-
-
-
-
-
-
-
+        if (win_width < 1360){
+            decor_size = 500 - (1360 - win_width) * 0.3;
+            decor_img.style.width = decor_size + 'px';
+        }
     }
     </script>
+
 </head>
 <body onresize="rubber_page()">
 
