@@ -8,8 +8,7 @@
     <link href='../static/css/styles.css' type='text/css' rel='stylesheet'>
 
     <script>
-    function rubber_page()
-    {
+    function rubber_page() {
         let win_width = window.innerWidth || document.body.clientWidth;
 
         let decor_img = document.getElementsByClassName('decor')[0];
@@ -26,7 +25,7 @@
         let h2_size;
         let h3_size;
 
-        let left_pad = win_width/2 - 697;
+        let left_pad = win_width / 2 - 697;
 
         let decor_size;
 
@@ -47,11 +46,15 @@
         }
 
         // Изменение отступов telegram_text и contacts_text
+        if (left_pad < 0) {
+            telegram_text.style.paddingLeft = '10px';
+            contacts_text.style.paddingLeft = '10px';
+        }
         if (left_pad > 10) {
             telegram_text.style.paddingLeft = left_pad + 'px';
             contacts_text.style.paddingLeft = left_pad + 'px';
         }
-        if (h2_size >= h2_initsize && h3_size >=h3_initsize) {
+        if (h2_size >= h2_initsize && h3_size >= h3_initsize) {
             telegram_text.style.paddingLeft = left_pad + 'px';
             contacts_text.style.paddingLeft = left_pad + 'px';
         }

@@ -47,6 +47,10 @@
             }
 
             // Изменение отступов telegram_text и contacts_text
+            if (left_pad < 0) {
+                telegram_text.style.paddingLeft = '10px';
+                contacts_text.style.paddingLeft = '10px';
+            }
             if (left_pad > 10) {
                 telegram_text.style.paddingLeft = left_pad + 'px';
                 contacts_text.style.paddingLeft = left_pad + 'px';
