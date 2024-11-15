@@ -1,13 +1,11 @@
-from flask import Flask
-import time
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
 @app.route('/')
-def get_time():
-    now_time = f'Сейчас: {time.strftime('%H:%M:%S')}'
-    return now_time
+def first_site():
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
